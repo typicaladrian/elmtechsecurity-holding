@@ -1,40 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elm Tech Solutions | Zero-Trust AI Edge Gateways</title>
+    <title>Elm Tech Solutions | Zero-Trust AI Edge Proxy</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 850: '#151f32', 950: '#020617' },
+                        emerald: { 400: '#34d399', 500: '#10b981' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #0f172a; color: #f8fafc; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; }
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-center items-center p-6 text-center">
-    
-    <div class="max-w-3xl w-full border border-slate-700 bg-slate-900 rounded-xl p-10 shadow-2xl">
-        <div class="mb-8">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">Elm Tech Solutions</h1>
-            <h2 class="text-xl md:text-2xl text-blue-400 font-medium">Enterprise Zero-Trust AI Compliance for Professional Practices</h2>
+<body class="antialiased min-h-screen relative flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-4 h-4 bg-emerald-500 rounded-sm"></div>
+                <span class="font-bold text-lg tracking-tight">Elm Tech Solutions</span>
+            </div>
+            <a href="mailto:adrian@elmtechsecurity.com" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Contact Founder</a>
         </div>
-        
-        <div class="text-slate-300 space-y-6 text-lg text-left border-t border-slate-700 pt-8">
-            <p><strong>The Problem:</strong> Utilizing frontier cloud Large Language Models (LLMs) inherently exposes confidential client data, protected health information (PHI), and intellectual property.</p>
-            <p><strong>The Solution:</strong> A turnkey, on-premises hardware proxy that intercepts prompts, executes a multi-pass redaction pipeline in volatile RAM, and routes sanitized payloads via a Bring Your Own Key (BYOK) architecture.</p>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="flex-grow">
+        <div class="relative pt-24 pb-16 px-6 sm:pt-32 sm:pb-24 lg:pb-32">
+            <div class="absolute inset-0 grid-bg z-0 pointer-events-none"></div>
             
-            <ul class="list-disc pl-6 space-y-2 mt-4 text-slate-400">
-                <li>Zero Plaintext Persistence to Disk</li>
-                <li>Cryptographic Client Hash Vaulting</li>
-                <li>Local Ephemeral Inference</li>
-            </ul>
+            <div class="relative z-10 max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 mb-8">
+                    <span>Hardware-as-a-Service • BYOK Architecture</span>
+                </div>
+                
+                <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
+                    Zero-Trust AI Compliance for <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Professional Practices.</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Turnkey on-premises edge hardware that intercepts, cryptographically hashes, and sanitizes confidential client entities before they reach frontier cloud LLMs.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="mailto:adrian@elmtechsecurity.com" class="w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-slate-950 bg-white rounded-lg hover:bg-slate-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+                        Request Local Demo
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <div class="mt-12 pt-8 border-t border-slate-700">
-            <p class="text-slate-400 mb-2">Hackensack, New Jersey</p>
-            <a href="mailto:adrian@elmtechsecurity.com" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
-                Contact: adrian@elmtechsecurity.com
-            </a>
+        <!-- Terminal / Architecture Visual -->
+        <div class="max-w-4xl mx-auto px-6 mb-24 relative z-10">
+            <div class="rounded-xl bg-slate-900 border border-slate-700 shadow-2xl overflow-hidden">
+                <div class="flex items-center px-4 py-3 border-b border-slate-800 bg-slate-850">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                    </div>
+                    <div class="mx-auto text-xs font-mono text-slate-500">GLiNER2 Pipeline • Ephemeral RAM</div>
+                </div>
+                <div class="p-6 font-mono text-sm leading-relaxed overflow-x-auto text-slate-300">
+                    <p><span class="text-emerald-400">➜</span> <span class="text-cyan-300">intercept</span> --lan-traffic 127.0.0.1:8000</p>
+                    <p><span class="text-emerald-400">➜</span> <span class="text-slate-500">running multi-pass entity extraction...</span></p>
+                    <p><span class="text-emerald-400">➜</span> <span class="text-rose-400">PII Detected:</span> Client_Name, Docket_Number, SSN</p>
+                    <p><span class="text-emerald-400">➜</span> <span class="text-amber-400">Vault Match:</span> SHA-256 zero-knowledge confirmed.</p>
+                    <p><span class="text-emerald-400">➜</span> <span class="text-cyan-300">sanitized_payload</span> forwarded to Claude Opus...</p>
+                    <p class="mt-4 text-emerald-400">✔ Zero Plaintext Persistence to Disk</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 text-slate-400 py-8 relative z-10">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between">
+            <p class="text-sm">© 2026 Elm Tech Solutions LLC. Hackensack, NJ.</p>
+            <p class="text-sm mt-2 sm:mt-0">Enterprise Air-Gapped Redaction Proxies.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
